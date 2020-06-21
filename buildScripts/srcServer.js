@@ -3,10 +3,10 @@ import path from 'path';
 import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
-
+/*eslint-disable no-console */
 const app = express();
 
-const port = 3001;
+const port = 3002;
 const compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
@@ -19,6 +19,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/index.html'));
 });
+
 
 app.listen(port, (err)=>{
     if(err){
